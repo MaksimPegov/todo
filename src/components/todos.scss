@@ -1,0 +1,73 @@
+.TodoTable {
+   display: flex;
+   background-color: lightsteelblue;
+   display: inline-block;
+   border-radius: 12px;
+   margin-top: 10px;
+   margin-bottom: 10px;
+   min-width: 350px;
+
+   &__empty {
+      margin: 15px;
+      font-weight: bold;
+      font-family: monospace;
+      font-size: large;
+      text-align: center;
+      background-color: white;
+      padding: 5px;
+      border-radius: 5px;
+   }
+}
+
+
+.TodoRow{
+   display: flex;
+   margin: 10px;
+   background-color: white;
+   padding: 5px;
+   border-radius: 5px;
+   
+   &__text{
+      margin-right: 5px;
+      font-size: large;
+   }
+
+   &__delete{
+      margin-right: 5px;
+   }
+
+   &__edit{
+      margin-left: auto;
+      padding-left: 5px;
+   }
+
+   input {
+      width: -webkit-fill-available;
+      margin-right: 5px;
+      padding: 2.5px;
+   }
+}
+
+.TodoInput{
+   margin: auto;
+   
+   &__button{
+      margin: auto;
+      padding: 3px;
+   }
+   input {
+      width: 200px;
+      margin-right: 10px;
+      padding: 4px;
+   }
+}
+
+input {
+   border-radius: 5px;
+   border-width: 1px;
+}
+
+button{
+   border-radius: 5px;
+   border-width: 1px;
+}

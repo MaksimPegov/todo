@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { getTodos, addTodos, deleteTodos, editTodos } from "../server-request"
 import { TodoInput } from "./todo-input"
 import { TodoTable } from "./todo-table"
-import "./todos.css"
+import "./todos.scss"
 
 export function Todos({logChange}) {
   const [todos, setTodos] = useState([])
