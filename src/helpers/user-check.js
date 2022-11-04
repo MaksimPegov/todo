@@ -5,7 +5,7 @@ export const userCheck = (user) => {
    return login(user).then((data) => {
       if(data.status){
          localStorage.setItem('user', user.username)
-         localStorage.setItem('userId', data.id)
+         localStorage.setItem('userID', data.id)
          
          return true
       }else{

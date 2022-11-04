@@ -11,13 +11,13 @@ export function Todos() {
 
   useEffect(() => {
     getButton()
-    if(localStorage.getItem('userId') === null){
+    if(localStorage.getItem('userID') === null){
       navigate("/login")
     }
   }, [])
 
   const getButton = () => {
-    getTodos().then((todos) => {
+    getTodos(localStorage.getItem('userID')).then((todos) => {
       setTodos(todos)
     })
   }
@@ -34,7 +34,7 @@ export function Todos() {
     const newTodo = {
       text: text,
       date: "2022-10-18",
-      user_id: 1
+      user_id: localStorage.getItem('userID')
   }
     editTodos(newTodo, id).then(getButton)
   }

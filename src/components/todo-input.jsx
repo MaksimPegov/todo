@@ -4,7 +4,7 @@ export function TodoInput({onAdd}){
         const todo = {
             text: inputValue,
             date: "2022-10-18",
-            user_id: 1
+            user_id: localStorage.getItem('userID')
         }
         if(inputValue === ''){
             alert("Please name your todo")
