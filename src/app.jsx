@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Login } from "./components/logIn";
 import { Todos } from "./components/todos";
+import { BrowserRouter, Route, Navigate, Routes } from 'react-router-dom'
+
 import "./styles.scss";
 
 export function App() {
@@ -12,7 +14,15 @@ export function App() {
 
   return (
     <div className="root">
-      {log ? <Todos logChange={login} />: <Login logChange={login} />}
+      <BrowserRouter>
+        <Routes>
+          <Route path="login" element={<Login/>} />
+          <Route path="/todos" element={<Todos/>} />
+          <Route path="/*" element={<Navigate to="/todos" />} />
+        </Routes>
+      </BrowserRouter>
+
+      {/* {log ? <Todos logChange={login} />: <Login logChange={login} />} */}
     </div>
   );
 }

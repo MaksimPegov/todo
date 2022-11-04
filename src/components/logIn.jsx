@@ -1,21 +1,20 @@
-import { login } from "../server-request";
+import { useNavigate } from "react-router-dom";
+import { userCheck } from "../helpers/user-check";
 
-export function Login({logChange}) {
+export function Login() {
+  const navigate = useNavigate();
 
   const user = {
     username: "maksim",
     password: "password"
   }
 
-  const userlogin = () => {
-    login(user).then((data) => {
-      console.log(data)
-      if(data.status){
-        logChange()
-      }else{
-        alert("Wrong username or password")
-      }
-    })
+  const loginHandler = () => {
+    let status = userCheck(user)
+    if(status){
+      navigate("/todos")
+      console.log("You successfully logged in!")
+    }
   }
 
   return (
@@ -24,7 +23,7 @@ export function Login({logChange}) {
       <p>Log in here</p>
       <input type="text" placeholder="Username"/>
       <input type="password" placeholder="Password"/>
-      <button onClick={userlogin}>Log in</button>
+      <button onClick={loginHandler}>Log in</button>
     </div>
   );
 }
