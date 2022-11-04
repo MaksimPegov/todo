@@ -38,7 +38,7 @@ export function Todos({logChange}) {
     <div className="main">
       <TodoInput onAdd={addButton}/>
       <TodoTable todos={todos} onDelete={deleteButton} onEdit={editbutton}/>
-      {/* <button onClick={logChange}>Log out</button> */}
+      <button onClick={logChange}>Log out</button>
     </div>
   )
 }

@@ -12,7 +12,7 @@ export function App() {
 
   return (
     <div className="root">
-      {log ? <Todos logChange={login} />: <Login logIn={login} />}
+      {log ? <Todos logChange={login} />: <Login logChange={login} />}
     </div>
   );
 }
