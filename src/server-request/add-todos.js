@@ -1,4 +1,3 @@
-
 export async function addTodos(todo){
     const response = await fetch('http://104.248.166.249:3000/todo',
     {

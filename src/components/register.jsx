@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import { accountCheck } from "../helpers/account-check"
+import { userCheck } from "../helpers/user-check"
+import { addUser } from "../server-request/user-registration"
 
 import "./register.scss"
 
@@ -8,16 +10,34 @@ export function Register() {
 
     
     const registerHandler = () => {   
-        let user = {
+        const user = {
             username: document.getElementById("uname").value,
             password: document.getElementById("pass").value,
             confirmPassword: document.getElementById("confirmPass").value
         }
 
-        if(accountCheck(user)){
-            localStorage.setItem("userID", "1")
-            navigate("/todos")
+        const newUser = {
+            username: user.username,
+            password: user.password
         }
+
+        if(accountCheck(user)){
+            addUser(newUser).then((res) => {
+                if(!res.status){
+                    alert(res.message)
+                    return
+                }else if(res.status){
+                    if(accountCheck(newUser)){
+                        userCheck(newUser).then((status) => {
+                          if(status){
+                            navigate("/todos")
+                            console.log(res.message)
+                          }
+                        })
+                      } else return
+                }
+            })
+        } else return
     }
 
     return(
