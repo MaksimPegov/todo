@@ -2,17 +2,17 @@
    margin: auto;
    display: flex;
    flex-direction: column;
-   background-color: lightblue;
+   background-color: lightsteelblue;
    padding: 15px;
    border-radius: 10px;
    margin-top: 20px;
 
-   &__button{
+   &__buttons__buttonLog{
       width: fit-content;
       margin: auto;
    }
 
-   &__register{
+   &__buttons__register{
       width: fit-content;
       margin: auto;
    }
@@ -21,5 +21,20 @@
       width: 250px;
       margin-bottom: 10px;
       padding: 5px;
+   }
+
+   &__buttons{
+      display: flex;
+      margin: initial;
+   }
+
+   &__text{
+      margin: auto;
+      padding-bottom: 25px;
+      padding-top: 15px;
+   }
+
+   &__text2{
+      margin-bottom: 15px;
    }
 }

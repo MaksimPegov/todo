@@ -1,10 +1,10 @@
-import { useNavigate } from "react-router-dom";
-import { userCheck } from "../helpers/user-check";
+import { useNavigate } from "react-router-dom"
+import { userCheck } from "../helpers/user-check"
 
-import "./logIn.scss";
+import "./logIn.scss"
 
 export function Login() {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const loginHandler = () => {
     userCheck({
@@ -26,10 +26,12 @@ export function Login() {
       <p className="LogIn__text2">Log in here</p>
       <input id="uname" type="text" placeholder="Username"/>
       <input id="pass" type="password" placeholder="Password"/>
-      <button onClick={loginHandler} className="LogIn__button">Log in</button>
-      <button onClick={()=>{
-        navigate("/register")
-      }} className="LogIn__register">Register</button>
+      <div className="LogIn__buttons">
+        <button onClick={loginHandler} className="LogIn__buttons__buttonLog">Log in</button>
+        <button onClick={()=>{
+          navigate("/register")
+        }} className="LogIn__buttons__register">I'm new here</button>
+      </div>
     </div>
   );
 }
