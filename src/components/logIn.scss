@@ -1,0 +1,25 @@
+.LogIn{
+   margin: auto;
+   display: flex;
+   flex-direction: column;
+   background-color: lightblue;
+   padding: 15px;
+   border-radius: 10px;
+   margin-top: 20px;
+
+   &__button{
+      width: fit-content;
+      margin: auto;
+   }
+
+   &__register{
+      width: fit-content;
+      margin: auto;
+   }
+
+   input{
+      width: 250px;
+      margin-bottom: 10px;
+      padding: 5px;
+   }
+}

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { getTodos, addTodos, deleteTodos, editTodos } from "../server-request"
-import { TodoInput } from "./todo-input"
-import { TodoTable } from "./todo-table"
+import { TodoInput } from "./modules/todo-input"
+import { TodoTable } from "./modules/todo-table"
 import "./todos.scss"
 
 export function Todos() {
