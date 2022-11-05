@@ -7,25 +7,26 @@
    border-radius: 10px;
    margin-top: 20px;
 
-   &__buttons__button{
+   &__buttons{
+     display: flex;
+     margin: initial;
+     margin: 10px;
+     
+     &__button{
         width: fit-content;
         margin: auto;
-   }
+     }
 
-   &__buttons__logIn{
-        width: fit-content;
-        margin: auto;
+     &__logIn{
+          width: fit-content;
+          margin: auto;
+     }
    }
 
    input{
         width: 250px;
         margin-bottom: 10px;
         padding: 5px;
-   }
-
-   &__buttons{
-        display: flex;
-        margin: initial;
    }
 
    &__text{
@@ -37,4 +38,8 @@
    &__text2{
         margin-bottom: 20px;
    }
+}
+
+button{
+     padding: 4px;
 }
