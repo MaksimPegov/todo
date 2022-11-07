@@ -5,7 +5,7 @@ export function TodoRow ({todo, onDelete, onEdit}) {
 
   const [edit, setEdit] = useState(false)
   const editing = () => {
-    setEdit(!edit)
+    setEdit(status => !status)
   } 
   
   function changeFlag (){
