@@ -37,7 +37,7 @@ export function Register() {
                       } else return
                 }
             })
-        } else return
+        } else return alert("Something went wrong")
     }
 
     return(

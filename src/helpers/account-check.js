@@ -17,9 +17,11 @@ export const accountCheck = (user) => {
           alert("Please confirm your password")
       } else if(user.password !== user.confirmPassword){
          alert("Passwords do not match")
+      } else { 
+         status = true
       }
   }else{
-      return true
+      status =  true
   }
 
    return status
