@@ -20,7 +20,10 @@ export function Login() {
           console.log("You successfully logged in!")
         }
       })
-    } else return
+    } else {
+        alert("Something went wrong")
+        return
+      }
   }
 
   return (

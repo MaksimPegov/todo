@@ -8,14 +8,12 @@ import "./register.scss"
 export function Register() {
     const navigate = useNavigate()
 
-    
     const registerHandler = () => {   
         const user = {
             username: document.getElementById("uname").value,
             password: document.getElementById("pass").value,
             confirmPassword: document.getElementById("confirmPass").value
         }
-
         const newUser = {
             username: user.username,
             password: user.password

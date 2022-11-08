@@ -1,7 +1,7 @@
 import { todoCheck } from "../../helpers/todo-check"
 
 export function TodoInput({onAdd}){
-    function readInput(){
+    const readInput = () => {
         let inputValue = document.getElementById('searchTxt').value
         const todo = {
             text: inputValue,

@@ -9,15 +9,12 @@ export function TodoRow ({todo, onDelete, onEdit}) {
     setEdit(status => !status)
   } 
   
-  function changeFlag (){
+  const changeFlag = () =>{
     if(!edit){
       editing()
       return 
     }
-
-    
     inputValue = document.getElementById(`input${todo.id}`).value
-
     if(todoCheck(inputValue)){
       onEdit(todo.id, inputValue)
       editing()
