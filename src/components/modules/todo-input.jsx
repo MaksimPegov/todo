@@ -1,3 +1,5 @@
+import { todoCheck } from "../../helpers/todo-check"
+
 export function TodoInput({onAdd}){
     function readInput(){
         let inputValue = document.getElementById('searchTxt').value
@@ -6,15 +8,11 @@ export function TodoInput({onAdd}){
             date: "2022-10-18",
             user_id: localStorage.getItem('userID')
         }
-        if(inputValue === ''){
-            alert("Please name your todo")
-            return
-        } else if(inputValue.length > 30){
-            alert("Your todo needs to be less than 30 characters!")
-            return
-        }else{
+        if(todoCheck(inputValue)){
             onAdd(todo)
             document.getElementById('searchTxt').value = ""
+        }else{
+            return
         }
     }
 

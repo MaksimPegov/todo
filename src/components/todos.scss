@@ -71,3 +71,27 @@ button{
    border-radius: 5px;
    border-width: 1px;
 }
+
+.AccountInfo{
+   display: flex;
+   flex-direction: row;
+   margin: auto;
+   font-size: 15px;
+
+   &__button{
+      width: fit-content;
+      font-size: 11px;
+      padding: 3px;
+      height: fit-content;
+      margin: auto;
+   }
+   
+   &__text{
+      height: fit-content;
+      margin: auto;
+   }
+   &__username{
+      font-weight: bold;
+      margin: 10px;
+   }
+}

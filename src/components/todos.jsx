@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { getTodos, addTodos, deleteTodos, editTodos } from "../server-request"
+import { AccountInfo } from "./modules/accountInfo"
 import { TodoInput } from "./modules/todo-input"
 import { TodoTable } from "./modules/todo-table"
+
 import "./todos.scss"
 
 export function Todos() {
@@ -43,10 +45,7 @@ export function Todos() {
     <div className="main">
       <TodoInput onAdd={addButton}/>
       <TodoTable todos={todos} onDelete={deleteButton} onEdit={editbutton}/>
-      <button onClick={() =>{
-        navigate("/login")
-        localStorage.clear()
-      }}>Log out</button>
+      <AccountInfo/>
     </div>
   )
 }

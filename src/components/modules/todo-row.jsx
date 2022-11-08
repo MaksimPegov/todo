@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { todoCheck } from "../../helpers/todo-check"
 
 export function TodoRow ({todo, onDelete, onEdit}) {
   let inputValue
@@ -17,17 +18,12 @@ export function TodoRow ({todo, onDelete, onEdit}) {
     
     inputValue = document.getElementById(`input${todo.id}`).value
 
-    if(inputValue === ''){
-      alert("Please name your todo!")
-      
-      return
-    } else if(inputValue.length > 30){
-      alert("Your needs to be less than 30 characters!")
-
+    if(todoCheck(inputValue)){
+      onEdit(todo.id, inputValue)
+      editing()
+    } else{
       return
     }
-    onEdit(todo.id, inputValue)
-    editing()
   }
 
   return (
