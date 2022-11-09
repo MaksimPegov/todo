@@ -1,45 +1,46 @@
-.RegisterPage{
+.RegisterPage {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: lightsteelblue;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 20px;
+
+  &__buttons {
+    display: flex;
+    margin: initial;
+    margin: 10px;
+
+    &__button {
+      width: fit-content;
+      margin: auto;
+    }
+
+    &__logIn {
+      width: fit-content;
+      margin: auto;
+    }
+  }
+
+  input {
+    width: 250px;
+    margin-bottom: 10px;
+    padding: 5px;
+  }
+
+  &__text {
     margin: auto;
-   display: flex;
-   flex-direction: column;
-   background-color: lightsteelblue;
-   padding: 15px;
-   border-radius: 10px;
-   margin-top: 20px;
+    padding-bottom: 30px;
+    padding-top: 20px;
+  }
 
-   &__buttons{
-     display: flex;
-     margin: initial;
-     margin: 10px;
-     
-     &__button{
-        width: fit-content;
-        margin: auto;
-     }
-
-     &__logIn{
-          width: fit-content;
-          margin: auto;
-     }
-   }
-
-   input{
-        width: 250px;
-        margin-bottom: 10px;
-        padding: 5px;
-   }
-
-   &__text{
-        margin: auto;
-        padding-bottom: 30px;
-        padding-top: 20px;
-   }
-
-   &__text2{
-        margin-bottom: 20px;
-   }
+  &__text2 {
+    margin-bottom: 20px;
+  }
 }
 
-button{
-     padding: 4px;
+button {
+  padding: 4px;
 }
+

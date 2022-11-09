@@ -1,22 +1,22 @@
-import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
-import { getTodos, addTodos, deleteTodos, editTodos } from "../server-request"
-import { AccountInfo } from "./modules/accountInfo"
-import { TodoInput } from "./modules/todo-input"
-import { TodoTable } from "./modules/todo-table"
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { getTodos, addTodos, deleteTodos, editTodos } from '../server-request'
+import { AccountInfo } from './modules/accountInfo'
+import { TodoInput } from './modules/todo-input'
+import { TodoTable } from './modules/todo-table'
 
-import "./todos.scss"
+import './todos.scss'
 
-export function Todos() {
+export const Todos = () => {
   const [todos, setTodos] = useState([])
   const navigate = useNavigate()
 
   useEffect(() => {
     getButton()
-    if(localStorage.getItem('userID') === null){
-      navigate("/login")
+    if (localStorage.getItem('userID') === null) {
+      navigate('/login')
     }
-  }, [])
+  }, [navigate])
 
   const getButton = () => {
     getTodos(localStorage.getItem('userID')).then((todos) => {
@@ -35,17 +35,18 @@ export function Todos() {
   const editbutton = (id, text) => {
     const newTodo = {
       text: text,
-      date: "2022-10-18",
-      user_id: localStorage.getItem('userID')
-  }
+      date: '2022-10-18',
+      user_id: localStorage.getItem('userID'),
+    }
     editTodos(newTodo, id).then(getButton)
   }
 
   return (
     <div className="main">
-      <TodoInput onAdd={addButton}/>
-      <TodoTable todos={todos} onDelete={deleteButton} onEdit={editbutton}/>
-      <AccountInfo/>
+      <TodoInput onAdd={addButton} />
+      <TodoTable todos={todos} onDelete={deleteButton} onEdit={editbutton} />
+      <AccountInfo />
     </div>
   )
 }
+
