@@ -1,13 +1,10 @@
-import { useNavigate } from 'react-router-dom'
 import { accountCheck } from '../helpers/account-check'
 import { userCheck } from '../helpers/user-check'
 import { addUser } from '../server-request/user-registration'
 
 import './register.scss'
 
-export const Register = () => {
-  const navigate = useNavigate()
-
+export const Register = ({ registration, log }) => {
   const registerHandler = () => {
     const user = {
       username: document.getElementById('uname').value,
@@ -27,7 +24,8 @@ export const Register = () => {
           if (accountCheck(newUser)) {
             userCheck(newUser).then((status) => {
               if (status) {
-                navigate('/todos')
+                registration(false)
+                log(true)
                 console.log(res.message)
               }
             })
@@ -57,7 +55,7 @@ export const Register = () => {
         </button>
         <button
           onClick={() => {
-            navigate('/login')
+            registration(false)
           }}
           className="RegisterPage__buttons__logIn"
         >

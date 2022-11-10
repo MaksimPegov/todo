@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { getTodos, addTodos, deleteTodos, editTodos } from '../server-request'
 import { AccountInfo } from './modules/accountInfo'
 import { TodoInput } from './modules/todo-input'
@@ -7,16 +6,15 @@ import { TodoTable } from './modules/todo-table'
 
 import './todos.scss'
 
-export const Todos = () => {
+export const Todos = ({ log }) => {
   const [todos, setTodos] = useState([])
-  const navigate = useNavigate()
 
   useEffect(() => {
     getButton()
     if (localStorage.getItem('userID') === null) {
-      navigate('/login')
+      log(false)
     }
-  }, [navigate])
+  }, [log])
 
   const getButton = () => {
     getTodos(localStorage.getItem('userID')).then((todos) => {
@@ -45,7 +43,7 @@ export const Todos = () => {
     <div className="main">
       <TodoInput onAdd={addButton} />
       <TodoTable todos={todos} onDelete={deleteButton} onEdit={editbutton} />
-      <AccountInfo />
+      <AccountInfo logOut={log} />
     </div>
   )
 }

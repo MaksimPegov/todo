@@ -1,12 +1,9 @@
-import { useNavigate } from 'react-router-dom'
 import { userCheck } from '../helpers/user-check'
 import { accountCheck } from '../helpers/account-check'
 
 import './logIn.scss'
 
-export const Login = () => {
-  const navigate = useNavigate()
-
+export const Login = ({ log, registration }) => {
   const loginHandler = () => {
     let user = {
       username: document.getElementById('uname').value,
@@ -16,7 +13,7 @@ export const Login = () => {
     if (accountCheck(user)) {
       userCheck(user).then((status) => {
         if (status) {
-          navigate('/todos')
+          log(true)
           console.log('You successfully logged in!')
         }
       })
@@ -37,7 +34,7 @@ export const Login = () => {
         </button>
         <button
           onClick={() => {
-            navigate('/register')
+            registration(true)
           }}
           className="LogIn__buttons__register"
         >

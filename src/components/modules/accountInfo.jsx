@@ -1,8 +1,4 @@
-import { useNavigate } from 'react-router-dom'
-
-export const AccountInfo = () => {
-  const navigate = useNavigate()
-
+export const AccountInfo = ({ logOut }) => {
   return (
     <div className="AccountInfo">
       <p className="AccountInfo__text">You authorized as:</p>
@@ -10,7 +6,7 @@ export const AccountInfo = () => {
       <button
         className="AccountInfo__button"
         onClick={() => {
-          navigate('/login')
+          logOut(false)
           localStorage.clear()
         }}
       >
@@ -19,3 +15,4 @@ export const AccountInfo = () => {
     </div>
   )
 }
+
