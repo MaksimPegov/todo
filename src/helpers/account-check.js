@@ -12,6 +12,8 @@ export const accountCheck = (user) => {
     alert('Username must be less than 30 characters long')
   } else if (user.password.length > 30) {
     alert('Password must be less than 30 characters long')
+  } else if (user.username.match(/[а-яА-ЯёЁ]/g) || user.password.match(/[а-яА-ЯёЁ]/g)) {
+    alert('RU charecters do not supported')
   } else if (user.hasOwnProperty('confirmPassword')) {
     if (user.confirmPassword === '') {
       alert('Please confirm your password')

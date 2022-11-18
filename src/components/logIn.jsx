@@ -7,7 +7,8 @@ import './logIn.scss'
 export const Login = () => {
   const navigate = useNavigate()
 
-  const loginHandler = () => {
+  const loginHandler = (e) => {
+    e.preventDefault()
     let user = {
       username: document.getElementById('uname').value,
       password: document.getElementById('pass').value,
@@ -29,21 +30,23 @@ export const Login = () => {
     <div className="LogIn">
       <h1 className="LogIn__text">LogIn</h1>
       <p className="LogIn__text2">Log in here</p>
-      <input id="uname" type="text" placeholder="Username" />
-      <input id="pass" type="password" placeholder="Password" />
-      <div className="LogIn__buttons">
-        <button onClick={loginHandler} className="LogIn__buttons__buttonLog">
-          Log in
-        </button>
-        <button
-          onClick={() => {
-            navigate('/register')
-          }}
-          className="LogIn__buttons__register"
-        >
-          Create an account
-        </button>
-      </div>
+      <form onSubmit={loginHandler} style={{ display: 'contents' }}>
+        <input id="uname" type="text" placeholder="Username" />
+        <input id="pass" type="password" placeholder="Password" />
+        <div className="LogIn__buttons">
+          <button onClick={loginHandler} className="LogIn__buttons__buttonLog">
+            Log in
+          </button>
+          <button
+            onClick={() => {
+              navigate('/register')
+            }}
+            className="LogIn__buttons__register"
+          >
+            Create an account
+          </button>
+        </div>
+      </form>
     </div>
   )
 }

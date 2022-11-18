@@ -33,17 +33,18 @@
 
   &__delete {
     margin-right: 5px;
-  }
-
-  &__edit {
     margin-left: auto;
-    padding-left: 5px;
   }
 
   input {
     width: -webkit-fill-available;
     margin-right: 5px;
     padding: 2.5px;
+  }
+
+  button {
+    padding: 3px;
+    font-size: 13px;
   }
 }
 

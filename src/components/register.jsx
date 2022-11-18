@@ -8,7 +8,8 @@ import './register.scss'
 export const Register = () => {
   const navigate = useNavigate()
 
-  const registerHandler = () => {
+  const registerHandler = (e) => {
+    e.preventDefault()
     const user = {
       username: document.getElementById('uname').value,
       password: document.getElementById('pass').value,
@@ -43,27 +44,29 @@ export const Register = () => {
     <div className="RegisterPage">
       <h1 className="RegisterPage__text">Register</h1>
       <p className="RegisterPage__text2">Create your new account here</p>
-      <input id="uname" type="text" placeholder="Your username" />
-      <input id="pass" type="password" placeholder="Your password" />
-      <input id="confirmPass" type="password" placeholder="Confirm your password" />
-      <div className="RegisterPage__buttons">
-        <button
-          onClick={() => {
-            registerHandler()
-          }}
-          className="RegisterPage__buttons__button"
-        >
-          Create an account
-        </button>
-        <button
-          onClick={() => {
-            navigate('/login')
-          }}
-          className="RegisterPage__buttons__logIn"
-        >
-          Back to login
-        </button>
-      </div>
+      <form onSubmit={registerHandler} style={{ display: 'contents' }}>
+        <input id="uname" type="text" placeholder="Your username" />
+        <input id="pass" type="password" placeholder="Your password" />
+        <input id="confirmPass" type="password" placeholder="Confirm your password" />
+        <div className="RegisterPage__buttons">
+          <button
+            onClick={() => {
+              registerHandler()
+            }}
+            className="RegisterPage__buttons__button"
+          >
+            Create an account
+          </button>
+          <button
+            onClick={() => {
+              navigate('/login')
+            }}
+            className="RegisterPage__buttons__logIn"
+          >
+            Back to login
+          </button>
+        </div>
+      </form>
     </div>
   )
 }

@@ -23,9 +23,6 @@ export const TodoRow = ({ todo, onDelete, onEdit }) => {
 
   return (
     <div className="TodoRow">
-      <button className="TodoRow__delete" onClick={() => onDelete(todo.id)}>
-        Done
-      </button>
       {!edit ? (
         <div className="TodoRow__text">{todo.text}</div>
       ) : (
@@ -36,9 +33,13 @@ export const TodoRow = ({ todo, onDelete, onEdit }) => {
           defaultValue={todo.text}
         />
       )}
+      <button className="TodoRow__delete" onClick={() => onDelete(todo.id)}>
+        Close
+      </button>
       <button className="TodoRow__edit" onClick={changeFlag}>
         {!edit ? 'Edit' : 'Save'}
       </button>
     </div>
   )
 }
+

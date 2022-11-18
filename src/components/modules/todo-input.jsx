@@ -1,7 +1,8 @@
 import { todoCheck } from '../../helpers/todo-check'
 
 export const TodoInput = ({ onAdd }) => {
-  const readInput = () => {
+  const readInput = (e) => {
+    e.preventDefault()
     let inputValue = document.getElementById('searchTxt').value
     const todo = {
       text: inputValue,
@@ -18,15 +19,18 @@ export const TodoInput = ({ onAdd }) => {
 
   return (
     <div className="TodoInput">
-      <input
-        type="add"
-        className="TodoInput__text"
-        id="searchTxt"
-        placeholder="Todo name"
-      />
-      <button className="TodoInput__button" onClick={() => readInput()}>
-        Add to list
-      </button>
+      <form onSubmit={readInput}>
+        <input
+          type="add"
+          className="TodoInput__text"
+          id="searchTxt"
+          placeholder="Todo name"
+        />
+        <button className="TodoInput__button" onClick={readInput}>
+          Add to list
+        </button>
+      </form>
     </div>
   )
 }
+
